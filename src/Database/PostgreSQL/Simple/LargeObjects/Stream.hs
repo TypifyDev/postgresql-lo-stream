@@ -2,8 +2,10 @@
 module Database.PostgreSQL.Simple.LargeObjects.Stream where
 
 import Control.Exception.Lifted (AssertionFailed (..), bracket, throwIO)
+import Control.Monad ((<=<), when)
 import Control.Monad.Loops (whileJust_)
 import Control.Monad.State as State
+import Data.Function (fix)
 import qualified Data.ByteString as BS
 import Data.ByteString.Builder (byteString)
 import qualified Data.ByteString.Builder as BS
