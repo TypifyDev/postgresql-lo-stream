@@ -1,4 +1,5 @@
 {-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE PackageImports #-}
 module Database.PostgreSQL.Simple.LargeObjects.Stream where
 
 import Control.Exception.Lifted (AssertionFailed (..), bracket, throwIO)
@@ -12,9 +13,9 @@ import qualified Data.ByteString.Builder as BS
 import qualified Data.ByteString.Lazy as LBS
 import Data.IORef (modifyIORef, newIORef, readIORef)
 import Data.Semigroup ((<>))
-import Database.PostgreSQL.Simple
-import Database.PostgreSQL.Simple.LargeObjects (LoFd, Oid (..))
-import qualified Database.PostgreSQL.Simple.LargeObjects as Sql
+import "postgresql-simple" Database.PostgreSQL.Simple
+import "postgresql-simple" Database.PostgreSQL.Simple.LargeObjects (LoFd, Oid (..))
+import qualified "postgresql-simple" Database.PostgreSQL.Simple.LargeObjects as Sql
 import System.IO (IOMode (ReadMode, WriteMode))
 import System.IO.Streams (makeOutputStream)
 import qualified System.IO.Streams as Streams
